@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ article.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index_page') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип">
+        </a>
+    </header>
+    <div class="container">
+        <h2>{{ article.title }}</h2>
+        <p><strong>Категория:</strong> {{ article.category.name }}</p>
+        <p><strong>Автор:</strong> {{ article.author }}</p>
+        <p><strong>Дата:</strong> {{ article.create_date }}</p>
+        <img src="{{ url_for('static', filename=article.photo_large) }}" alt="{{ article.title }}">
+        <div>
+            {{ article.description }}
+        </div>
+        <a href="{{ url_for('index_page') }}">Вернуться на главную</a>
+    </div>
+</body>
+</html>
